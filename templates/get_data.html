@@ -1,0 +1,21 @@
+
+{% block content %}
+
+
+<ul>
+    {% for shoes in my_data %}
+
+
+         <li>{{ shoes.nombre }}</li>
+        <li>{{ shoes.descriptionShoes }}</li>
+        <li>{{ shoes.priceShoes }}</li>
+        <li>{{ shoes.fecha_publicacion }}</li>
+
+
+    {% endfor %}
+
+</ul>
+
+
+{% endblock %}
+

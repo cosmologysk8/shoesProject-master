@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'shoes/style.css' %}">
+<script src="shoes/static/shoes/script.js"></script>
+    <nav class="nav">
+        <div class="container">
+            <div class="logo">
+                <a href="#">Shoes Land</a>
+            </div>
+            <div id="mainListDiv" class="main_list">
+                <ul class="navlinks">
+                    <li><a href="#about_us">Sobre Nosotros</a></li>
+                    <li><a href="#">Localizaciones</a></li>
+                    <li><a href="#">Zapatillas</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+            <span class="navTrigger">
+                <i></i>
+                <i></i>
+                <i></i>
+            </span>
+        </div>
+    </nav>
+
+    <section class="home">
+    </section>
+    <div style="height: 1000px">
+        <!-- just to make scrolling effect possible -->
+        <a id="about_us"></a>
+			<p class="myP">Shoes Land</p>
+            <p class="myP">
+                Somos una compañia nacida en España y proyectada para servir a todos los usuarios del mundo que esten interesados en nuestros productos de alta calidad. Importamos productos de las más
+                grandes marcas internacionales como : Adidas, Nike, Converse, Vans, New Balance, Reebok... para exportarlos a todas partes. No somos una simple tienda, somo una comunidad que cada día crece más
+                y nos sentimos dentro de un movimiento urbano único. ATT : SHOES LAND
+			</p>
+            <div>
+                {% include "get_data.html" %}
+
+            </div>
+    </div>
+
+<!-- Jquery needed -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
+
+<!-- Function used to shrink nav bar removing paddings and adding black background -->
+    <script>
+        $(window).scroll(function() {
+            if ($(document).scrollTop() > 50) {
+                $('.nav').addClass('affix');
+                console.log("OK");
+            } else {
+                $('.nav').removeClass('affix');
+            }
+        });
+    </script>
+</body>
+</html>
