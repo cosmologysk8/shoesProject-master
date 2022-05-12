@@ -5,6 +5,8 @@
     <title>Title</title>
 </head>
 <body>
+{% load bootstrap4 %}
+{%  bootstrap_css %}
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'shoes/style.css' %}">
 <script src="shoes/static/shoes/script.js"></script>
@@ -34,15 +36,34 @@
     <div style="height: 1000px">
         <!-- just to make scrolling effect possible -->
         <a id="about_us"></a>
-			<p class="myP">Shoes Land</p>
-            <p class="myP">
-                Somos una compañia nacida en España y proyectada para servir a todos los usuarios del mundo que esten interesados en nuestros productos de alta calidad. Importamos productos de las más
+            <div class="myP" style="background-color: #f2f2f2; margin: 10px 0">
+                <div class="col-12">
+				<h1>Shoes Land</h1>
+				<p> Somos una compañia nacida en España y proyectada para servir a todos los usuarios del mundo que esten interesados en nuestros productos de alta calidad. Importamos productos de las más
                 grandes marcas internacionales como : Adidas, Nike, Converse, Vans, New Balance, Reebok... para exportarlos a todas partes. No somos una simple tienda, somo una comunidad que cada día crece más
-                y nos sentimos dentro de un movimiento urbano único. ATT : SHOES LAND
-			</p>
-            <div>
-                {% include "get_data.html" %}
+                y nos sentimos dentro de un movimiento urbano único. ATT : SHOES LAND</p>
+				<button class="btn btn-primary">Ver Más</button>
+			    </div>
+            </div>
 
+            <div class="myP">
+                {% block content %}
+                    {% for shoes in shoes_list %}
+                <div class="row mt-3">
+			        <div class="col-4">
+				        <div class="card">
+					        <img class="card-img-top" src="{{ shoes.imageUrl }}" width="300" height="150">
+					        <div class="card-body">
+						        <h5 class="card-title">{{ shoes.nombre }}</h5>
+						        <h6 class="card-subtitle text-muted mb-2">{{ shoes.priceShoes }} €</h6>
+						        <p class="card-text">{{ shoes.descriptionShoes }}</p>
+						        <a href="#" class="btn btn-outline-primary">Añadir al Carrito</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endblock %}
             </div>
     </div>
 

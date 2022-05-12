@@ -6,6 +6,5 @@ class shoes(models.Model):
     nombre = models.TextField()
     descriptionShoes = models.TextField(max_length=150,default="pendiente")
     priceShoes = models.FloatField(null=True)
-    fecha_publicacion = models.DateField()
-    # imageShoes = models.ImageField(upload_to='Images/imageShoes', default="*")
+    imageUrl = models.TextField(default='inserte URL de la image')
 
